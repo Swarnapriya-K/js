@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Factorial of a number</h1>
+  <h2>Enter the number</h2>
+  <input type="number" id='num'>
+   <button onclick="fact()" >click me</button>
+   <p id='rslt'>Result</p>
+   <script>
+    function fact(){
+      let num=parseInt(document.getElementById('num').value);
+      let a=1;
+      let i=num;
+       while (i>0) {
+         a=a*i;
+         i--;
+         console.log(a);
+       }
+       document.getElementById('rslt').textContent="The Result is:"+a;
+    }
+   </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>star in pyramid structure</h1>
+  <h1>Enter the value to display stars</h1>
+  <input type="number" id='star'>
+  <button onclick="stars()">click me</button>
+  <p id='rslt'  >result</p>
+  <script>
+  function stars()
+   {
+    let n=parseInt(document.getElementById('star').value)
+    for (let i = 0; i < n; i++) {
+        var a = '';
+        for (let j =0; j <n - i; j++)
+         a=a+ ' ';
+        for (let k = 0; k <= i; k++)
+         a=a+ '* ';
+        console.log(a);  
+    } 
+  }
+  </script>
+</body>
+</html>

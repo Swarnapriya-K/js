@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Enter the value</h1>
+  <input type="number" id="value">
+  <button onclick="countdown()">start</button>
+    <script>
+        function countdown() {
+            let count=parseInt(document.getElementById('value').value);
+            while (count >= 0) {
+              console.log(count)
+              count--;
+            }
+        }
+
+    </script>
+</body>
+</html>

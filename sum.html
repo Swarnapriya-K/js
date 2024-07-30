@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>sum of the numbers between two values</h1>
+  <h2>Enter the starting value:</h2>
+  <input type="number" id='start'>
+  <h2>Enter the ending value:</h2>
+  <input type="number" id='end'>
+  <button onclick="sumof()">result</button>
+  <p id='result'></p>
+  <script>
+    function sumof(){
+      let start=parseInt(document.getElementById('start').value)
+      let end=parseInt(document.getElementById('end').value)
+      let sum=0;
+      for (let i = start; i <= end; i++) {
+        sum=sum+i; 
+      }
+      document.getElementById('result').textContent="the sum is:"+sum;
+    }
+  </script>
+</body>
+</html>
