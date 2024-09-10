@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+ rel="stylesheet">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <script src="https://kit.fontawesome.com/your_kit_id.js" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+    <link rel="stylesheet" href="./form.css">
+  </head>
+  <body style="background-image: url(./images\ \(1\).jpg); background-repeat: no-repeat; background-size: cover;">
+    <div class="container-fluid">
+      <div class="container bg">
+        <h1 style="text-align: center">Registration Form</h1>
+
+        First name:
+        <input
+          type="text"
+          id="fname"
+          name="fname"
+          style="width: 400px; height: 30px"
+          placeholder="First and last name"
+          autofocus
+          
+        />
+        <p id="num" style="color: red"></p>
+
+        Email:
+        <input type="email" id="email" name="email" autofocus />
+        <p id="mail" style="color: red"></p>
+        <br />
+
+        Phone number
+        <input type="tel" id="phone" />
+        <p id="number" style="color: red"></p>
+        <br />
+
+        Password:
+        <input
+          type="password"
+          id="pwd"
+          name="pwd"
+          placeholder="Atleast 8 characters"
+          autofocus
+        /><br />
+        <p id="pass1" style="color: red"></p>
+        <br />
+
+        Confirm Password:
+        <input type="password" id="cpwd" name="cpwd" autofocus /><br /><br />
+        <p id="pass2" style="color: red"></p>
+        <br />
+
+        <label>Gender</label><br />
+        <input type="radio" id="male" name="radio" value="MALE" />
+        <label for="male">MALE</label><br />
+        <input type="radio" id="female" name="radio" value="FEMALE" />
+        <label for="female">FEMALE</label>
+        <p id="rad" style="color: red"></p>
+        <br />
+
+        <label>Known Languages</label><br />
+        <input type="checkbox" id="Python" name="checkbox" value="Python" />
+        <label for="Python">Python</label><br />
+        <input type="checkbox" id="Java" name="checkbox" value="Java" />
+        <label for="Java">Java</label><br />
+        <input type="checkbox" id="c" name="checkbox" value="c" />
+        <label for="c">c</label>
+        <p id="box" style="color: red"></p>
+        <br />
+
+        <label>Date of Birth :</label>
+        <input type="date" id="dob" name="date" /><br />
+        <span id="d" style="color: red"></span>
+        <br />
+
+        <label>Select the City :</label>
+        <select id="select" aria-label="Default select example w-100">
+          <option selected></option>
+          <option value="1">Coimbatore</option>
+          <option value="2">Erode</option>
+          <option value="3">Pollachi</option>
+        </select> <br>
+        <span id="i" style="color: red"></span><br />
+
+        <label>Address:</label><br />
+        <textarea id="address" rows="5" cols="35"></textarea><br />
+        <span id="a" style="color: red"></span><br />
+
+
+        <button type="submit" onclick="validation()">Submit</button>
+      </div>
+    </div>
+    <script>
+      function validation() {
+        let name = document.getElementById("fname").value;
+        let patterns = /^[a-zA-Z ]{2,30}$/;
+        let isFormInValid = false;
+
+        if (name == "") {
+          document.getElementById("num").innerHTML = "enter your name";
+          isFormInValid = true;
+        } else if (!patterns.test(name)) {
+          document.getElementById("num").innerHTML = "enter a valid name";
+          isFormInValid = true;
+        } else {
+          document.getElementById("num").innerHTML = "";
+        }
+
+        
+        let mail = document.getElementById("email").value;
+        let pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+        if (mail == "") {
+          document.getElementById("mail").innerHTML = "enter your mail";
+          isFormInValid = true;
+        } else if (!pattern.test(mail)) {
+          document.getElementById("mail").innerHTML = "enter a valid mail";
+          isFormInValid = true;
+        } else {
+          document.getElementById("mail").innerHTML = "";
+        }
+
+
+        let password = document.getElementById("pwd").value;
+        let p = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/;
+        if (password == "") {
+          document.getElementById("pass1").innerHTML = "enter your password";
+          isFormInValid = true;
+        } else if (!p.test(password)) {
+          document.getElementById("pass1").innerHTML =
+            "enter your correct password";
+          isFormInValid = true;
+        } else {
+          document.getElementById("pass1").innerHTML = "";
+        }
+
+        let cpassword = document.getElementById("cpwd").value;
+        let p1 = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/;
+        if (cpassword == "") {
+          document.getElementById("pass2").innerHTML = "confirm your password";
+          isFormInValid = true;
+        } else if (password != cpassword) {
+          document.getElementById("pass2").innerHTML =
+            "enter your correct password";
+          isFormInValid = true;
+        } else {
+          document.getElementById("pass2").innerHTML = "";
+        }
+
+        if (male.checked) {
+          document.getElementById("rad").innerHTML = "";
+        } else if (female.checked) {
+          document.getElementById("rad").innerHTML = "";
+        } else {
+          document.getElementById("rad").innerHTML =
+            "choose any one of the option";
+          isFormInValid = true;
+        }
+
+
+        if (Python.checked) {
+          document.getElementById("box").innerHTML = "";
+        } else if (Java.checked) {
+          document.getElementById("box").innerHTML = "";
+        } else if (c.checked) {
+          document.getElementById("box").innerHTML = "";
+        } else {
+          document.getElementById("box").innerHTML = "choose any one of the option";
+          isFormInValid = true;
+        }
+
+
+        let phno = document.getElementById("phone").value;
+        let ptn = /^(\d{3})[- ]?(\d{3})[- ]?(\d{4})$/;
+        if (phno == "") {
+          document.getElementById("number").innerHTML =
+            "enter your phone number";
+          isFormInValid = true;
+        } else if (!ptn.test(phno)) {
+          document.getElementById("number").innerHTML =
+            "enter the valid phone number";
+          isFormInValid = true;
+        } else {
+          document.getElementById("number").innerHTML = "";
+        }
+
+        let place = document.getElementById("select").value;
+         if (place == "") {
+          document.getElementById("i").innerHTML =
+            "select a city";
+            isFormInValid = true;}
+            
+            else {
+          document.getElementById("i").innerHTML = "";
+        }
+
+        let db = document.getElementById("dob").value;
+         if (db == "") {
+          document.getElementById("d").innerHTML =
+            "select a date";
+            isFormInValid = true;}
+            
+            else {
+          document.getElementById("d").innerHTML = "";
+        }
+
+         let add = document.getElementById("address").value;
+         if (add == "") {
+          document.getElementById("a").innerHTML =
+            "fill your address";
+            isFormInValid = true;}
+            
+            else {
+          document.getElementById("a").innerHTML = "";
+        }
+        
+
+        if (isFormInValid) {
+          console.log("Form is invalid");
+        } else {
+          alert("Form submitted successfully!");
+        }
+      }
+    </script>
+
+  </body>
+</html>
